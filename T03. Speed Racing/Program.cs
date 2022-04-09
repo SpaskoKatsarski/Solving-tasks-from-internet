@@ -7,10 +7,10 @@ namespace T03._Speed_Racing
     {
         public Car(string model, double fuelAmount, double fuelConsumption)
         {
-            this.Model = model;
-            this.FuelAmount = fuelAmount;
-            this.FuelConsumption = fuelConsumption;
-            this.TraveledDistance = 0;
+            Model = model;
+            FuelAmount = fuelAmount;
+            FuelConsumption = fuelConsumption;
+            TraveledDistance = 0;
         }
 
         public string Model { get; set; }
@@ -23,7 +23,7 @@ namespace T03._Speed_Racing
 
         public bool CanDriveDistance(double kmToTravel)
         {
-            if (this.FuelConsumption * kmToTravel <= this.FuelAmount)
+            if (FuelConsumption * kmToTravel <= FuelAmount)
             {
                 return true;
             }
@@ -47,9 +47,9 @@ namespace T03._Speed_Racing
 
                 string carModel = carInfo[0];
                 double fuelAmount = double.Parse(carInfo[1]);
-                double FuelConsumptionPerKm = double.Parse(carInfo[2]);
+                double fuelConsumptionPerKm = double.Parse(carInfo[2]);
 
-                allCars.Add(new Car(carModel, fuelAmount, FuelConsumptionPerKm));
+                allCars.Add(new Car(carModel, fuelAmount, fuelConsumptionPerKm));
             }
 
             string command;
@@ -64,10 +64,12 @@ namespace T03._Speed_Racing
 
                 if (allCars.Find(c => c.Model == carModel).CanDriveDistance(kilometersToTravel))
                 {
-                    allCars.Find(c => c.Model == carModel).FuelAmount -=
-                        kilometersToTravel * allCars.Find(c => c.Model == carModel).FuelConsumption;
+                    Car currentCar = allCars.Find(c => c.Model == carModel);
 
-                    allCars.Find(c => c.Model == carModel).TraveledDistance += kilometersToTravel;
+                    currentCar.FuelAmount -=
+                        kilometersToTravel * currentCar.FuelConsumption;
+
+                    currentCar.TraveledDistance += kilometersToTravel;
                 }
                 else
                 {
