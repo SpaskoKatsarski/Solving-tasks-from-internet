@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "T03. Speed Racing", "T03. S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T.11", "T.11\T.11.csproj", "{9801E0D1-87F6-4DDE-A1CC-E1BEA1856A60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T.12", "T.12\T.12.csproj", "{0F22C35D-319D-4546-95EE-A581F34D07EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T.13", "T.13\T.13.csproj", "{13E67886-F858-4F22-BF3A-D7EDFEA153CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{9801E0D1-87F6-4DDE-A1CC-E1BEA1856A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9801E0D1-87F6-4DDE-A1CC-E1BEA1856A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9801E0D1-87F6-4DDE-A1CC-E1BEA1856A60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F22C35D-319D-4546-95EE-A581F34D07EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F22C35D-319D-4546-95EE-A581F34D07EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F22C35D-319D-4546-95EE-A581F34D07EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F22C35D-319D-4546-95EE-A581F34D07EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E67886-F858-4F22-BF3A-D7EDFEA153CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E67886-F858-4F22-BF3A-D7EDFEA153CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E67886-F858-4F22-BF3A-D7EDFEA153CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E67886-F858-4F22-BF3A-D7EDFEA153CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
