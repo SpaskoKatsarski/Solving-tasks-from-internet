@@ -53,7 +53,7 @@ namespace T._13
                 int health;
                 int armor;
 
-                if (string.IsNullOrEmpty(testDamage))
+                if (string.IsNullOrEmpty(testDamage) || !int.TryParse(testDamage, out damage))
                 {
                     damage = DefaultDamage;
                 }
@@ -62,7 +62,7 @@ namespace T._13
                     damage = int.Parse(testDamage);
                 }
 
-                if (string.IsNullOrEmpty(testHealth))
+                if (string.IsNullOrEmpty(testHealth) || !int.TryParse(testHealth, out health))
                 {
                     health = DefaultHealth;
                 }
@@ -71,7 +71,7 @@ namespace T._13
                     health = int.Parse(testHealth);
                 }
 
-                if (string.IsNullOrEmpty(testArmor))
+                if (string.IsNullOrEmpty(testArmor) || !int.TryParse(testArmor, out armor))
                 {
                     armor = DefaultArmor;
                 }
@@ -85,11 +85,15 @@ namespace T._13
                 {
                     if (typeWithItsDragons[type].Any(x => x.DragonName == name))
                     {
-                        Dragon currDragon = typeWithItsDragons[type].Find(d => d.DragonName == name);
+                        Dragon currDragon = typeWithItsDragons[type].Find(d => d.DragonName == name); 
 
                         currDragon.Damage = damage;
                         currDragon.Health = health;
                         currDragon.Armor = armor;
+                    }
+                    else
+                    {
+                        typeWithItsDragons[type].Add(new Dragon(name, health, damage, armor));
                     }
                 }
                 else
@@ -98,13 +102,17 @@ namespace T._13
                 }
             }
 
-            foreach (var kvp in typeWithItsDragons)
+            foreach (KeyValuePair<string, List<Dragon>> kvp in typeWithItsDragons)
             {
-                Console.WriteLine(kvp.Key);
+                double averageHealth = kvp.Value.Average(x => x.Health);
+                double averageDamage = kvp.Value.Average(x => x.Damage);
+                double averageArmor = kvp.Value.Average(x => x.Armor);
 
-                foreach (var dragon in kvp.Value)
+                Console.WriteLine($"{kvp.Key}::({averageDamage:f2}/{averageHealth:f2}/{averageArmor:f2})");
+
+                foreach (Dragon dragon in kvp.Value.OrderBy(x => x.DragonName))
                 {
-                    Console.WriteLine(dragon.DragonName);
+                    Console.WriteLine($"-{dragon.DragonName} -> damage: {dragon.Damage}, health: {dragon.Health}, armor: {dragon.Armor}");
                 }
             }
         }
